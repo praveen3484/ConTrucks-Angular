@@ -1,0 +1,150 @@
+<div class="jumbotron" style="padding-left:10px;padding-right: 10px;">
+  <div class="con">
+    <h2 style="text-align: center;text-decoration: underline; color: black;"><i class="fa fa-truck" aria-hidden="true"></i><strong>POST A NEW JOB</strong> </h2>
+  </div>
+  <hr>
+
+
+  <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm)" role="form" method="POST">
+
+    <div class="row">
+      <div class=" col-md-6">
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['JobTitle'].valid && complexForm.controls['JobTitle'].touched}">
+          <label><strong>Title</strong></label>
+          <input class="form-control" id="JobTitle" type="text" placeholder="Title of your Job" [formControl]="complexForm.controls['JobTitle']"
+            name="JobTitle" autofocus [(ngModel)]="JobTitle">
+          <!-- The hasError method will tell us if a particular error exists -->
+          <div *ngIf="  complexForm.controls['JobTitle'].touched  &&    complexForm.controls['JobTitle'].hasError('required')  " class="alert alert-danger">You must include Job Title.</div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['JobDescription'].valid && complexForm.controls['JobDescription'].touched}">
+          <label><strong>Description</strong></label>
+          <input class="form-control" id="JobDescription" type="text" placeholder="Description of your Job" [formControl]="complexForm.controls['JobDescription']"
+            name="JobDescription" autofocus [(ngModel)]="JobDescription">
+          <div *ngIf="complexForm.controls['JobDescription'].hasError('required') && complexForm.controls['JobDescription'].touched"
+            class="alert alert-danger">You must include Job Description.</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['budget'].valid && complexForm.controls['budget'].touched}">
+          <label><strong>Estimated Budget ($)</strong></label>
+
+          <input class="form-control" id="Budget" type="number" placeholder="Budget of your Job in USD" [formControl]="complexForm.controls['budget']"
+            name="Budget" autofocus [(ngModel)]="Budget">
+
+          <div *ngIf="complexForm.controls['budget'].hasError('required') && complexForm.controls['budget'].touched" class="alert alert-danger">You must include Budget.</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['EstimatedTime'].valid && complexForm.controls['EstimatedTime'].touched}">
+          <label><strong>Estimated Time (Hours)</strong></label>
+          <input class="form-control" id="EstimatedTime" type="number" placeholder="Your Estimated Time" [formControl]="complexForm.controls['EstimatedTime']"
+            name="EstimatedTime" autofocus [(ngModel)]="EstimatedTime">
+          <div *ngIf="complexForm.controls['EstimatedTime'].hasError('required') && complexForm.controls['EstimatedTime'].touched"
+            class="alert alert-danger">You must include Estimated Time.</div>
+        </div>
+
+        <div class="form-group">
+          <label><strong>Load Type</strong></label>
+          <select class="form-control" formControlName="LoadTypeId" [formControl]="complexForm.controls['LoadTypeId']">
+                       <option *ngFor="let Data of data" [value]="Data.LoadTypeId">{{Data.LoadName}}</option>
+          </select>
+        </div>
+        <!--<div class="form-group" [ngClass]="{'has-error':!complexForm.controls['LoadTypeId'].valid && complexForm.controls['LoadTypeId'].touched}">
+          <label><strong>Load Type</strong></label>
+          <input class="form-control" id="LoadTypeId" type="number" placeholder="Load Type" [formControl]="complexForm.controls['LoadTypeId']" name="LoadTypeId" autofocus [(ngModel)]="LoadTypeId">
+         
+          <div *ngIf="complexForm.controls['LoadTypeId'].hasError('required') && complexForm.controls['LoadTypeId'].touched" class="alert alert-danger">You must include Load Type.</div>
+        </div>-->
+
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['LoadWeight'].valid && complexForm.controls['LoadWeight'].touched}">
+          <label><strong>Load Weight (MT)</strong></label>
+
+          <input class="form-control" id="LoadWeight" type="number" placeholder="Enter Load weight in MT " [formControl]="complexForm.controls['LoadWeight']"
+            name="LoadWeight" autofocus [(ngModel)]="LoadWeight">
+
+          <div *ngIf="complexForm.controls['LoadWeight'].hasError('required') && complexForm.controls['LoadWeight'].touched" class="alert alert-danger">You must include Load Weight.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['SourceAddress'].valid && complexForm.controls['SourceAddress'].touched}">
+          <label><strong>Pick Up Location</strong></label>
+          <input class="form-control" id="SourceAddress" type="text" placeholder="Enter PickUp Location" [formControl]="complexForm.controls['SourceAddress'] "
+            name="SourceAddress" autofocus [(ngModel)]="SourceAddress">
+          <div *ngIf="complexForm.controls['SourceAddress'].hasError('required') && complexForm.controls['SourceAddress'].touched"
+            class="alert alert-danger">You must include PickUp Location.</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['DestinationAddress'].valid && complexForm.controls['DestinationAddress'].touched}">
+          <label><strong>Drop Location</strong></label>
+          <input class="form-control" type="text" id="DestinationAddress" placeholder="Enter Drop Location" [formControl]="complexForm.controls['DestinationAddress']"
+            name="DestinationAddress" autofocus [(ngModel)]="DestinationAddress">
+          <div *ngIf="complexForm.controls['DestinationAddress'].hasError('required') && complexForm.controls['DestinationAddress'].touched"
+            class="alert alert-danger">You must include Drop Location.</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['distance'].valid && complexForm.controls['distance'].touched}">
+          <label><strong>Distance</strong></label>
+          <input class="form-control" id="distance" type="number" placeholder="Enter Distance" [formControl]="complexForm.controls['distance']"
+            name="distance" autofocus [(ngModel)]="distance">
+          <div *ngIf="complexForm.controls['distance'].hasError('required') && complexForm.controls['distance'].touched" class="alert alert-danger">You must include Distance.</div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['JobStartDate'].valid && complexForm.controls['JobStartDate'].touched}">
+          <label><strong>Expected Job Start Date</strong></label><br>
+          <input class="form-control" id="JobStartDate" type="date" placeholder="DD/MM/YYYY" [formControl]="complexForm.controls['JobStartDate']"
+            name="JobStartDate" autofocus [(ngModel)]="JobStartDate">
+          <!--<material-datepicker [(date)]="yourModelDate" class="form-control"></material-datepicker>-->
+          <div *ngIf="complexForm.controls['JobStartDate'].hasError('required') && complexForm.controls['JobStartDate'].touched" class="alert alert-danger">You must include Start Job Date.</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['JobEndDate'].valid && complexForm.controls['JobEndDate'].touched}">
+          <label><strong>Expected Job Stop Date</strong></label>
+          <input class="form-control" id="JobEndDate" type="date" placeholder="DD/MM/YYYY" [formControl]="complexForm.controls['JobEndDate']"
+            name="JobEndDate" autofocus [(ngModel)]="JobEndDate">
+          <div *ngIf="complexForm.controls['JobEndDate'].hasError('required') && complexForm.controls['JobEndDate'].touched" class="alert alert-danger">You must include End Job Date.</div>
+        </div>
+
+        <div class="form-group">
+          <label><strong>Truck Type</strong></label>
+          <select class="form-control" formControlName="TruckTypeId" [formControl]="complexForm.controls['TruckTypeId']">
+                       <option *ngFor="let Data of data1" [value]="Data.TruckTypeId">{{Data.Trucktype}}</option>
+          </select>
+        </div>
+
+
+        <!--<select class="form-control" formControlName="TruckType" style="width:450px;" [formControl]="complexForm.controls['TruckType']"  name="TruckType" autofocus [(ngModel)]="TruckType">
+                        <option *ngFor="let TruckType of TruckTypes" [value]="TruckType">{{TruckType}}</option>
+                    </select>
+         <div *ngIf="complexForm.controls['TruckTypeId'].hasError('required') && complexForm.controls['TruckTypeId'].touched" class="alert alert-danger">You must include truck type</div>-->
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="wrapper" style="text-align: center; padding-bottom: 5px;">
+      <button type="submit" class="btn btn-outline-info my-2 my-sm-0 btn-success" style="text-align: center;">Submit
+                </button> &nbsp;&nbsp;
+      <button type="reset" class="btn btn-outline-info my-2 my-sm-0 btn-danger" style="text-align: center;" data-dismiss="modal">Reset
+                </button>
+
+    </div>
+
+  </form>
+
+</div>
+
+<!--[disabled]="!complexForm.valid"-->

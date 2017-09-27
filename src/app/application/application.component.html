@@ -1,0 +1,114 @@
+
+<!-- Header -->
+
+
+<header class="header" data-position="fixed">
+  <nav class="top-bar">
+    <div class="overlay-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="call-to-action">
+              <ul class="list-inline">
+                <li><a [routerLink]="['/truckdash']"><i class="fa fa-phone"></i> Home</a> &nbsp; &nbsp;
+                  <a [routerLink]="['/aboutus']"><i class="fa fa-envelope"></i> About Us</a> &nbsp; &nbsp;
+                  <a href="#"><i class="fa fa-envelope"></i> Contact Us</a> &nbsp; &nbsp;
+                  <a href="#"><i class="fa fa-envelope"></i> Help Centre</a> &nbsp; &nbsp;
+                  
+              </ul>
+            </div>
+            <!-- /.call-to-action -->
+          </div>
+          <!-- /.col-sm-6 -->
+          <div class="col-sm-6 hidden-xs">
+            <div class="topbar-right">
+                            <div class="call-to-action">
+              <ul class="social-links list-inline pull-right">
+                <li><a href="http://www.fb.com">Messages</a>
+                  <a style="margin-left: 10px" href="#">Notifications</a>
+                  <a style="margin-left: 10px" href="#">Edit Profile</a>
+                 <button type="submit" class="btn btn-outline-info my-2 my-sm-0 btn-success" style="margin-left: 20px;"> <a [routerLink]="['/home']" style="color:#ffffff" >Log Out</a></button></li>
+                   <!--<a href="#"><i class="fa fa-linkedin"></i></a>
+                   <a href="#"><i class="fa fa-google-plus"></i></a>
+                   <a href="#"><i class="fa fa-youtube"></i></a></li>-->
+              </ul>
+            </div>
+            </div>
+            <!-- /.social-links -->
+          </div>
+          <!-- /.col-sm-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.overlay-bg -->
+  </nav>
+  <!-- /.top-bar -->
+ </header>
+
+
+
+
+
+<!-------------Application Form------------------>
+
+<div class="jumbotron" style="padding-left:10px;padding-right: 10px;">
+  <div class="con">
+    <h2 style="text-align: center; color: black;"><i class="fa fa-truck" aria-hidden="true" ></i><strong> JOB APPLICATION FORM </strong> </h2>
+  </div>
+  <hr>
+
+
+<!--form start-->
+
+  <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm)" role="form" method="POST">
+   
+        <!--Label for cover letter-->
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['cover'].valid && complexForm.controls['cover'].touched}">
+          <label><strong>Cover Letter</strong></label>
+          <!--Text area : cover letter-->
+          <textarea style="height: 100px; width: 100%;" class="form-control" id="cover" type="text" placeholder="Write Here" [formControl]="complexForm.controls['cover']" name="cover" autofocus [(ngModel)]="cover"></textarea>
+          <!-- The hasError method will tell us if a particular error exists -->
+          <div *ngIf="  complexForm.controls['cover'].touched  &&    complexForm.controls['cover'].hasError('required')  " class="alert alert-danger">Cover Letter should not be empty.</div>
+        </div>
+
+        <!--Label for asking price-->
+        <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['price'].valid && complexForm.controls['price'].touched}">
+          <label><strong>Asking Price (USD)</strong></label>
+        <!--Text box : asking price-->
+        <input style="width:100%;" class="form-control" id="price" type="number" placeholder="Mention expected fare" [formControl]="complexForm.controls['price']" name="price" autofocus [(ngModel)]="price">
+        <!-- The hasError method will tell us if a particular error exists -->
+        <div *ngIf="complexForm.controls['price'].hasError('required') && complexForm.controls['price'].touched" class="alert alert-danger">You must include expected price.</div>
+        </div>
+
+        <!--Label for time-->
+        <div  class="form-group" [ngClass]="{'has-error':!complexForm.controls['time'].valid && complexForm.controls['time'].touched}">
+          <label><strong>Time Required</strong></label>
+         <!--Text box : time-->
+         <input style="width: 100%;" class="form-control" id="time" type="text" placeholder="HH:MM" [formControl]="complexForm.controls['time']" name="time" autofocus [(ngModel)]="time">
+        <!-- The hasError method will tell us if a particular error exists -->
+          <div *ngIf="complexForm.controls['time'].hasError('required') && complexForm.controls['time'].touched" class="alert alert-danger">You must include time.</div>
+        </div>
+
+
+        <!--Submit button-->
+    <div class="wrapper" style="text-align: center; padding-bottom: 5px;">
+      <button type="submit" class="btn btn-outline-info my-2 my-sm-0 btn-success" style="text-align: center;" [disabled]="!complexForm.valid" >Submit
+                </button>
+
+&nbsp;&nbsp;
+
+        <!--Reset button-->
+      <button type="reset" class="btn btn-outline-info my-2 my-sm-0 btn-danger" style="text-align: center;"data-dismiss="modal">Reset
+                </button>
+    </div>
+  </form>
+  <!--/Form-->
+
+<!--Navigate to Available Jobs-->
+<a [routerLink]="['/availablejobs']">Go Back to Current Jobs </a> 
+
+</div>
+
+<!-------------Application Form Ends-------------------->

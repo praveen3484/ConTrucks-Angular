@@ -1,0 +1,135 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="login-page">
+    <header class="header">
+  <div class="row">
+    <div class="col-sm-6">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container mainnav">
+          <div class="navbar-header">
+            <h1 class="logo">
+              <a class="navbar-brand" href="#"><img src="/assets/images/ConTrucksLogo.JPG" style="width: 100%" alt=""></a>
+            </h1>
+          </div>
+        </div>
+        <!-- /.container -->
+      </nav>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/home"> <strong>HOME </strong> <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/aboutus']"><strong>ABOUT US </strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>HELP CENTER</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>CONTACT US</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>SERVICES</strong></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['/kendogrid']"><strong>Grid</strong></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<br><br><br>
+  
+    <html>
+    
+    <body><br><br><br> 
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Sign Into Your Account</h2>
+        <br>
+        <br>
+            <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate >
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !UserEmail.valid }">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control"  name="UserEmail" [(ngModel)]="model.UserEmail" #UserEmail="ngModel" required />
+                    <div *ngIf="f.submitted && !UserEmail.valid" class="help-block">Username is required</div>       
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !UserPassword.valid }">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control"  name="UserPassword" [(ngModel)]="model.UserPassword" #UserPassword="ngModel" required />
+                    <div *ngIf="f.submitted && !UserPassword.valid" class="help-block">Password is required</div>{{model.UserPassword}}
+                </div>
+                <a href="#">Forgot password?</a>
+                <br>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Login</button>
+                    <!--<button [disabled]="loading" class="btn btn-primary">Login</button>--> 
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<!--        
+<div class="col-md-6 col-md-offset-3">
+    <h2>Sign Into Your Account</h2>
+    <br>
+    <br>
+    <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate >
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="UserEmail" [(ngModel)]="UserEmail"  required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="UserPassword" [(ngModel)]="UserPassword"  required />
+            <div *ngIf="f.submitted && !UserPassword.valid" class="help-block">Password is required</div>{{model.UserPassword}}
+        </div>
+         <a href="#">Forgot password?</a>
+        <br>
+        <br>
+        <div class="form-group">
+
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
+           
+            
+        </div>
+    </form>
+</div>
+    </body>
+</html>
+
+<html>
+    <header></header>
+    <body>
+        <br>
+        <br>
+        <br>
+        -->
+        
+     
+</div>

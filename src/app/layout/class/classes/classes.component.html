@@ -1,0 +1,120 @@
+
+<!--New job post :Part 1-->
+
+<table class="table table-striped table-responsive table-bordered table-hover table-condensed" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+    [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+
+    <!--table headings-->
+    <thead>
+        <tr class="col">
+            <th style="width: 2%">
+                <mfDefaultSorter [by]="JobTitle">Title</mfDefaultSorter>
+            </th>
+
+           
+
+            <th style="width: 2%">
+                <mfDefaultSorter by="JobDescription">Description</mfDefaultSorter>
+            </th>
+            <th style="width: 2%">
+                <mfDefaultSorter by="Budget">Estimated Budget ($)</mfDefaultSorter>
+            </th>
+
+            <th style="width: 2%">
+                <mfDefaultSorter by="EstimatedTime">Estimated Time</mfDefaultSorter>
+            </th>
+
+            <th style="width: 2%">
+                <mfDefaultSorter by="LoadTypeId">Load Type</mfDefaultSorter>
+            </th>
+
+            <th style="width: 2%">
+                <mfDefaultSorter by="LoadWeight">Load Weight</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+
+
+            <!--Table data-->                
+    <tbody>
+
+        <tr *ngFor="let contact of data">
+            <td colspan="1">{{contact.JobTitle}}</td>
+            <td colspan="1">{{contact.JobDescription}}</td>
+            <td colspan="1">{{contact.Budget}}</td>
+            <td colspan="1">{{contact.EstimatedTime}}</td>
+            <td colspan="1">{{contact.LoadTypeId }}</td>
+            <td colspan="1">{{contact.LoadWeight}}</td>
+                                            </tr>
+
+
+
+
+
+    </tbody>
+    </table>
+<!--closing table part 1-->
+
+<br><br>
+
+
+<!--table: Part 2-->
+<table class="table table-striped table-responsive table-bordered table-hover table-condensed" [mfData]="data1 | dataFilter : filterQuery" #mg="mfDataTable"
+    [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+
+    <!--table heading-->
+    <thead>
+        <tr class="col">
+                            <th style="width: 2%">
+                                <mfDefaultSorter [by]="JobTitle">Title</mfDefaultSorter>
+                            </th>
+
+                            <th style="width: 2%">
+                                <mfDefaultSorter by="SourceAddress">Pickup Location</mfDefaultSorter>
+                            </th>
+
+                            <th style="width: 2%">
+                                <mfDefaultSorter by="DestinationAddress">Drop Location</mfDefaultSorter>
+                            </th>
+
+                            <th style="width: 2%">
+                                <mfDefaultSorter [by]="dist">Distance</mfDefaultSorter>
+                            </th>
+
+
+                            <th style="width: 2%">
+                                <mfDefaultSorter by="JobStartDate">StartDate</mfDefaultSorter>
+                            </th>
+                            
+                            <th style="width: 2%">
+                                <mfDefaultSorter by="JobEndDate">EndDate</mfDefaultSorter>
+                            </th>
+
+                            <th style="width: 2%">
+                                <mfDefaultSorter by="TruckTypeId">Truck Type</mfDefaultSorter>
+                            </th>
+        </tr>
+    </thead>
+
+    <!--table data-->
+     <tbody>
+        <tr *ngFor="let contact1 of data1">
+                                    <td colspan="1">{{contact1.JobTitle}}</td>
+                                    <td colspan="1">{{contact1.SourceAddress}}</td>
+                                    <td colspan="1">{{contact1.DestinationAddress}}</td>
+                                    <td colspan="1">{{contact1.distance}}</td>
+                                    <td colspan="1">{{contact1.JobStartDate}}</td>
+                                    <td colspan="1">{{contact1.JobEndDate}}</td>
+                                    <td colspan="1">{{contact1.TruckTypeId}}</td>
+        </tr>
+     </tbody>
+</table>
+<!--Closing table 2-->
+
+<!--<tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>-->

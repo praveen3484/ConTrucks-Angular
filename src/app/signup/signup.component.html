@@ -1,0 +1,173 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="login-page" [@routerTransition]>
+
+    <header class="header">
+  <div class="row">
+    <div class="col-sm-6">
+      <nav class="navbar navbar-default" role="navigation">
+        <!--<div class="container mainnav">-->
+          <div class="navbar-header">
+            <h1 class="logo">
+              <a class="navbar-brand" href="#"><img src="/assets/images/ConTrucksLogo.JPG" style="width: 100%" alt=""></a>
+            </h1>
+          </div>
+        <!--</div>-->
+        <!-- /.container -->
+      </nav>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/home"> <strong>HOME </strong> <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><strong>ABOUT US </strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>HELP CENTER</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>CONTACT US</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#"><strong>SERVICES</strong></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<!--<div class="container">-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</div>-->
+     
+<br><br><br>
+  
+    <div class="row">
+        <div class=" col-md-offset-3 col-md-4 push-md-4">
+            <img style="text-align: center" class="user-avatar" src="assets/images/logo.png" width="150px" />
+            <h1>Contractor SignUp</h1>
+            <form role="form" (ngSubmit)="onSubmit(signupdata)" #signupdata="ngForm" [formGroup]="myform">
+
+                <div class="form-content" style="height: 650px; width: 550px;">
+
+
+                    <!--User Id-->
+                    <div class="form-group form-text ">
+                            <!-- validation for name field-->
+                            <!--<div *ngIf="  complexForm.controls['userid'].touched  &&    complexForm.controls['userid'].hasError('required')  " class="alert alert-danger">You must include Job Title.</div>-->
+                            <span *ngIf="userid.errors && (userid.dirty || signupdata.submitted) && userid.errors.required" class="alert alert-danger alignment">User Name is required</span>
+                        <!--User Id input field-->
+                        <input type="userid" class="form-control input-underline input-lg" id="userid" placeholder="User Name" name="userid" autofocus
+                            formControlName="userid" required>
+
+                    </div>
+
+
+                    <!--Full Name-->
+                    <div class="form-group form-text ">
+                        <div>
+                            <!-- validation for name field-->
+                            <span *ngIf="fname.errors && (fname.dirty || signupdata.submitted) && fname.errors.required" class="alert alert-danger alignment">First Name please</span>
+                        </div>
+                        <!--Name input field-->
+                        <input type="fname" class="form-control input-underline input-lg" id="fname" placeholder="First Name" name="fname" autofocus
+                            formControlName="fname" required>
+
+                    </div>
+
+                    <div class="form-group form-text ">
+                        <div>
+                            <!-- validation for name field-->
+                            <span *ngIf="lname.errors && (lname.dirty || signupdata.submitted) && lname.errors.required" class="alert alert-danger alignment">Last Name please</span>
+                        </div>
+                        <!--Name input field-->
+                        <input type="lname" class="form-control input-underline input-lg" id="lname" placeholder="Last Name" name="lname" autofocus
+                            formControlName="lname" required>
+
+                    </div>
+
+                    <div class="form-group form-text ">
+                        <div>
+                            <!-- validation for name field-->
+                            <span *ngIf="age.errors && (age.dirty || signupdata.submitted) && age.errors.required" class="alert alert-danger alignment">Age please</span>
+                        </div>
+                        <!--Name input field-->
+                        <input type="age" class="form-control input-underline input-lg" id="age" placeholder="Age" name="age" autofocus
+                            formControlName="age" required>
+
+                    </div>
+
+
+                    <!--Email-->
+                    <div class="form-group form-text">
+                        <div>
+                        <div>
+                            <!-- validation for email field-->
+                            <span *ngIf="email.errors && (email.dirty || signupdata.submitted) && email.errors.required" class="alert alert-danger alignment">Email please</span>
+                        </div>
+                        <!--Email input field-->
+                        <input type="email" class="form-control input-underline input-lg" id="email" placeholder="Email" name="email" autofocus formControlName="email"
+                            required>
+
+                    </div>
+
+                    <br>
+                        <div class="form-group form-text">
+
+                        <div>
+                            <!-- validation for email field-->
+                            <span *ngIf="contact.errors && (contact.dirty || signupdata.submitted) && contact.errors.required" class="alert alert-danger alignment">Contact Number</span>
+                        </div>
+                        <!--Email input field-->
+                        <input type="contact" class="form-control input-underline input-lg" id="contact" placeholder="Contact Number" name="contact" autofocus formControlName="contact"
+                            required>
+
+                    </div>
+
+
+                    <!--password-->
+                    <div class="form-group form-text">
+
+                        <div>
+                            <!-- validation for password field-->
+                            <span *ngIf="password.errors && (password.dirty || signupdata.submitted) && password.errors.required" class="alert alert-danger alignment">Password please</span>
+                        </div>
+                        <!--password input field-->
+                        <input type="password" class="form-control input-underline input-lg" id="password" placeholder="Password" name="password"
+                            autofocus formControlName="password" required>
+
+                    </div>
+
+                    <!-- password confirmation field-->
+
+                    <div class="form-group form-text">
+
+                        <div>
+                            <!-- validation for password confirmation field-->
+                            <span *ngIf="confirmpassword.errors && (confirmpassword.dirty || signupdata.submitted) && confirmpassword.errors.required"
+                                class="alert alert-danger alignment">Confirm Password</span>
+                        </div>
+                        
+                        <!--Password confirmation input field-->
+                        <input type="password" class="form-control input-underline input-lg" id="confirmpassword" placeholder="Confirm Password"
+                            name="confirmpassword" autofocus formControlName="confirmpassword" required>
+
+                    </div>
+
+                    <button type="submit" [routerLink]="['/login']" class="btn rounded-btn"  [disabled]="!myform.valid"><i class="fa fa-user-plus" aria-hidden="true"></i> Register </button>&nbsp;
+                    <a class="btn rounded-btn" [routerLink]="['/login']"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in </a>
+
+                </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

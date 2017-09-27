@@ -1,0 +1,96 @@
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+ 
+
+
+
+
+<header class="header" data-position="fixed">
+  <nav class="top-bar">
+    <div class="overlay-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="call-to-action">
+              <ul class="list-inline">
+                <li><a [routerLink]="['/truckdash']"><i class="fa fa-phone"></i> Home</a> &nbsp; &nbsp;
+                  <a [routerLink]="['/aboutus']"><i class="fa fa-envelope"></i> About Us</a> &nbsp; &nbsp;
+                  <a href="#"><i class="fa fa-envelope"></i> Contact Us</a> &nbsp; &nbsp;
+                  <a href="#"><i class="fa fa-envelope"></i> Help Centre</a> &nbsp; &nbsp;
+                  
+              </ul>
+            </div>
+            <!-- /.call-to-action -->
+          </div>
+          <!-- /.col-sm-6 -->
+          <div class="col-sm-6 hidden-xs">
+            <div class="topbar-right">
+                            <div class="call-to-action">
+              <ul class="social-links list-inline pull-right">
+                <li><a href="http://www.fb.com">Messages</a>
+                  <a style="margin-left: 10px" href="#">Notifications</a>
+                  <a style="margin-left: 10px" href="#">Edit Profile</a>
+                 <button type="submit" class="btn btn-outline-info my-2 my-sm-0 btn-success" style="margin-left: 20px;"> <a [routerLink]="['/home']" style="color:#ffffff" >Log Out</a></button></li>
+                   <!--<a href="#"><i class="fa fa-linkedin"></i></a>
+                   <a href="#"><i class="fa fa-google-plus"></i></a>
+                   <a href="#"><i class="fa fa-youtube"></i></a></li>-->
+              </ul>
+            </div>
+            </div>
+            <!-- /.social-links -->
+          </div>
+          <!-- /.col-sm-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.overlay-bg -->
+  </nav>
+  <!-- /.top-bar -->
+ </header>
+<div class="container">
+ <br>
+ <h2> Currently Available Jobs
+    
+ </h2>
+   
+  
+                <table class="table table-striped table-responsive table-bordered table-hover table-condensed">
+                    <tr class="col">
+                        <th colspan="4">Job Title</th> 
+                        <th colspan="4">Distance</th>
+                        <th colspan="4">Job Description</th>
+                        <th colspan="4">Job StartDate</th>
+                        <th colspan="4">Job EndDate</th>
+                        <th colspan="4"> Estimated Time</th>
+                        <th colspan="4">Source Address </th>
+                        <th colspan="4">Destination Address </th>
+                        <th colspan="4"> Load Weight </th>
+                        <th colspan="4"> Action </th>
+                    </tr>
+                      <tr *ngFor="let contact of data; let i = index">
+                       
+                        <td colspan="4">{{contact.JobTitle}}</td>
+                        <td colspan="4">{{contact.distance}}</td>
+                        <td colspan="4">{{contact. JobDescription}}</td>
+                        <td colspan="4">{{contact. JobStartDate}}</td>
+                        <td colspan="4">{{contact. JobEndDate}}</td>
+                        <td colspan="4">{{contact. EstimatedTime}}</td>
+                        <td colspan="4">{{contact. SourceAddress}}</td>
+                        <td colspan="4">{{contact. DestinationAddress}}</td>
+                        <td colspan="4">{{contact. LoadWeight}}</td>
+                        <td colspan="4">
+                          <button type="submit" class="btn btn-success" [routerLink]="['/application']">Apply</button>
+                          <button type="submit" class="btn btn-danger">Cancel</button>
+
+                        </td>
+                    </tr>
+                </table> 
+</div>
+
+ <div class="wrapper">
+         <button type="submit"  class="btn btn-outline-info my-2 my-sm-0"  style="text-align: center;"
+            data-dismiss="modal" >Close
+        </button>
+   </div>  
+

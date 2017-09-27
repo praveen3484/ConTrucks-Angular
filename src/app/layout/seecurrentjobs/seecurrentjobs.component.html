@@ -1,0 +1,45 @@
+
+ <h2> Currently Available Jobs
+    
+ </h2>
+   
+  
+                <table class="table">
+                    <tr>
+                        
+                        <th colspan="4">Id</th>
+                        <th colspan="4">Distance</th>
+                        <th colspan="4">JobTitle</th> 
+                        <th colspan="4">JobDescription</th>
+                        <th colspan="4">JobStartDate</th>
+                        <th colspan="4">JobEndDate</th>
+                        <th colspan="4"> EstimatedTime</th>
+                        <th colspan="4">SourceAddress </th>
+                        <th colspan="4">DestinationAddress </th>
+                        <th colspan="4"> LoadWeight </th>
+                        <th colspan="4"> LoadTypeId </th>
+                        <th colspan="4"> TruckTypeId </th>
+                    </tr>
+                      <tr *ngFor="let contact of data; let i = index">
+                        <td colspan="4">{{i+1}}</td>
+                       
+                        <td colspan="4">{{contact.distance}}</td>
+                        <td colspan="4">{{contact.JobTitle}}</td>
+                        <td colspan="4">{{contact. JobDescription}}</td>
+                        <td colspan="4">{{contact. JobStartDate}}</td>
+                        <td colspan="4">{{contact. JobEndDate}}</td>
+                        <td colspan="4">{{contact. EstimatedTime}}</td>
+                        <td colspan="4">{{contact. SourceAddress}}</td>
+                        <td colspan="4">{{contact. DestinationAddress}}</td>
+                        <td colspan="4">{{contact. LoadWeight}}</td>
+                        <td colspan="4">{{contact. LoadTypeId}}</td>
+                        <td colspan="4">{{contact.  TruckTypeId }}</td>
+                    </tr>
+                </table> 
+
+ <div class="wrapper">
+         <button type="submit"  class="btn btn-outline-info my-2 my-sm-0"  style="text-align: center;"
+            data-dismiss="modal" >Close
+        </button>
+   </div>  
+
